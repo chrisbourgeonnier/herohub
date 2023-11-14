@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "herobanner.gif" %>);">
+  <div class="container">
+    <h1>Have you always dreamed of having superpowers?</h1>
+    <p> No need to dream anymore, just book a day with a mighty SuperHero</p>
+    <%= link_to services_path do %>
+    <button class="btn btn-flat">Discover all SuperHeroes</button>
+    <% end %>
+  </div>
+</div>
