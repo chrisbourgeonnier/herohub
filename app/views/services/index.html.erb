@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>List of superheroes</h1>
+  <h1>Choose your superhero</h1>
 
   <div class="container lists-container">
     <main class="p-4">
@@ -11,8 +11,10 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= service.superhero_name %></h5>
                     <p class="card-text"><%= service.bio %></p>
-                    <p class="card-text">Y <%= service.fee %></p>
                     <a href="services/<%= service.id %>" class="btn btn-primary">See more</a>
+                    <div class="card-footer">
+                      <small class="text-muted">¥ <%= service.fee %> / day</small>
+                    </div>
                   </div>
                 </div>
               </div>
