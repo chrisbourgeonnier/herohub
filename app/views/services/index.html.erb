@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>List of superheroes</h1>
+
+  <div class="container lists-container">
+    <main class="p-4">
+      <ul class="list-unstyled container">
+        <div class="row">
+            <% @services.each do |service| %>
+              <li><%= service.superhero_name %></li>
+            <% end %>
+        </div>
+      </ul>
+    </main>
+  </div>
+
+</div>
