@@ -1,0 +1,9 @@
+class Service < ApplicationRecord
+  belongs_to :user
+  has_many :bookings
+  has_many :bookings_as_owner, through: :services, source: :bookings
+  validates :superhero_name, presence: true, uniqueness: true
+  validates :fee, presence: true
+  validates :image_url, presence: true
+  validates :bio, presence: true
+end
