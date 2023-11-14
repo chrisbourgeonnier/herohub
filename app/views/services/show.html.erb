@@ -1,5 +1,6 @@
 <div>
   <div>
+    <img src="<%= @service.image_url %>" width=300 alt="<%= @service.superhero_name %>'s image">
   </div>
   <div>
     <h1>
@@ -7,27 +8,27 @@
     </h1>
     <p>
       <strong>I am a </strong>
-      <%= service.race %>
+      <%= @service.race %>
     </p>
 
     <p>
       <strong>My powers are </strong>
-      <%= service.powers %>
+      <%= @service.powers %>
     </p>
 
     <h3>
-      <strong>I'm yours for <%= service.fee %> /day</strong>
+      <strong>I'm yours for ¥<%= @service.fee %> /day</strong>
     </h3>
 
     <div class="team">
     <p>
       <strong>I belong to the </strong>
-      <%= service.team %>
+      <%= @service.team %>
     </p>
     </div>
 
     <p><strong>About me: </strong></p>
-      <%= service.bio %>
+      <%= @service.bio %>
   </div>
 
 
