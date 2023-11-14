@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="card-service">
+    <%# <div class="col-3"> %>
+      <img src="<%= @service.image_url %>" width=300 alt="<%= @service.superhero_name %>'s image">
+    <%# </div> %>
+
+    <div class="card-service-infos">
+
+      <h1>
+        <%= @service.superhero_name %>
+      </h1>
+      <div class="d-grid gap-2">
+        <p>
+          <strong>I am a </strong>
+          <%= @service.race %>
+        </p>
+
+        <p>
+          <strong>My powers are </strong>
+          <%= @service.powers %>
+        </p>
+
+        <div class="team">
+          <p>
+            <strong>I belong to the </strong>
+            <%= @service.team %>
+          </p>
+        </div>
+
+        <p><strong>About me: </strong>
+          <%= @service.bio %>
+        </p>
+      </div>
+
+      <h3>
+        <strong>I'm yours for ¥<%= @service.fee %> /day</strong>
+      </h3>
+      <div class="d-grid gap-2">
+        <%= link_to "Book my services", "#", class: "btn btn-flat" %>
+      </div>
+
+    </div>
+  </div>
+</div>
