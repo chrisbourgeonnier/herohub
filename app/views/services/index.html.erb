@@ -3,13 +3,21 @@
 
   <div class="container lists-container">
     <main class="p-4">
-      <ul class="list-unstyled container">
         <div class="row">
             <% @services.each do |service| %>
-              <li><%= service.superhero_name %></li>
+             <div class="col-md-auto">
+              <div class="card mb-3 rounded shadow" style="width: 18rem;">
+                <img class="card-img-top" src=<%= service.image_url %> alt="Card image cap" height="200">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= service.superhero_name %></h5>
+                    <p class="card-text"><%= service.bio %></p>
+                    <p class="card-text">Y <%= service.fee %></p>
+                    <a href="services/<%= service.id %>" class="btn btn-primary">See more</a>
+                  </div>
+                </div>
+              </div>
             <% end %>
         </div>
-      </ul>
     </main>
   </div>
 
