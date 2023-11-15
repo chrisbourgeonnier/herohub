@@ -11,7 +11,7 @@
             <h5 class="card-header">Coming bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <li class="list-group-item"><%= booking.user_id %> - <%= booking.date %></li>
+                <li class="list-group-item"><%= booking.service_id %> - <%= booking.date %></li>
               <% end %>
             </ul>
           </div>
