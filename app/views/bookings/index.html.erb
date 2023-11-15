@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>My dashboard</h1>
+  <br>
+
+  <div class="container lists-container">
+    <div class="d-flex flex-row justify-content-md-between">
+      <div class="p-2">
+        <div class="d-flex">
+        <div class="card mb-6 rounded shadow overflow-auto" style="width: 36rem; height: 260px">
+          <div class="card-body">
+            <h5 class="card-header">Coming bookings</h5>
+            <ul class="list-group list-group-flush">
+              <% @bookings.each do |booking| %>
+                <li class="list-group-item"><%= booking.user_id %> - <%= booking.date %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="d-flex mt-3">
+        <div class="card mb-6 rounded shadow overflow-auto" style="width: 36rem; height: 260px">
+          <div class="card-body">
+            <h5 class="card-header">Previous bookings</h5>
+            <ul class="list-group list-group-flush">
+              <% @bookings.each do |booking| %>
+                <li class="list-group-item"><%= booking.user_id %> - <%= booking.date %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="p-2">
+        <div class="card mb-6 rounded shadow overflow-auto" style="width: 36rem; height: 585px">
+          <div class="card-body">
+            <h5 class="card-header">Pending bookings</h5>
+              <% @bookings.each do |booking| %>
+                <p><%= booking.user_id %> - <%= booking.date %></p>
+                <p><%= booking.comments %></p>
+                <a class="btn btn-outline-primary btn-lg" href="#" role="button">Modify</a>
+                <a class="btn btn-outline-danger btn-lg" href="#" role="button">Cancel</a>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
