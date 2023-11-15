@@ -15,5 +15,39 @@
     <p class="alert"><%= alert %></p>
     <h1>NAVBAR</h1>
     <%= yield %>
+
+    <%# footer start %>
+    <div class="text-white text-start bg-black p-5 mt-5">
+      <div class="row pb-5">
+        <div class="col-sm-3">
+          <p>FAQ</p>
+          <p>About HeroHub</p>
+          <p>Press</p>
+        </div>
+        <div class="col-sm-3">
+          <p>Sitemap</p>
+          <p>Join Us</p>
+          <p>Contact Us</p>
+        </div>
+        <div class="col-sm-3">
+          <p>Privacy Policy</p>
+          <p>Legal Notice</p>
+        </div>
+      </div>
+      <div class="row border-top pt-4">
+        <div class="col-sm-6">
+        <p>© 2023 HeroHub, Inc. All rights reserved.</p>
+        </div>
+        <div class="col-sm-6 text-end">
+          <ul class="list-horizontal">
+            <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%# footer end %>
   </body>
 </html>
