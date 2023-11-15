@@ -17,6 +17,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
       <div class="container-fluid">
         <%= link_to root_path, class: "navbar-brand" do %>
@@ -52,44 +53,46 @@
                 <%# link_to "Login", new_user_session_path, class: "nav-link" %>
               <%# </li> %>
             <%# end %>
+
           </ul>
         </div>
       </div>
     </div>
+  
+      <div class="main-display container">
+        <%= yield %>
+      </div>
+  
 
-  <%# <body class="d-flex flex-column h-100"> %>
-
-    <%# <header>
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <img src="app/assets/images/herohub.jpg" width="150" alt="">
-          <a class="navbar-brand" href="#">HeroHub Logo</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Our Superheroes</a>
-              </li>
-              <%# <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li> %>
-            <%# </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+   <%# footer start %>
+    <div class="text-white text-start bg-black p-5 mt-5">
+      <div class="row pb-5">
+        <div class="col-sm-3">
+          <p>FAQ</p>
+          <p>About HeroHub</p>
+          <p>Press</p>
         </div>
-      </nav>
-    </header> %>
-    <div class="main-display container">
-      <%= yield %>
-    </div>
+        <div class="col-sm-3">
+          <p>Sitemap</p>
+          <p>Join Us</p>
+          <p>Contact Us</p>
+        </div>
+        <div class="col-sm-3">
+          <p>Privacy Policy</p>
+          <p>Legal Notice</p>
+        </div>
+      </div>
+      <div class="row border-top pt-4">
+        <div class="col-sm-6">
+        <p>© 2023 HeroHub, Inc. All rights reserved.</p>
+        </div>
+        <div class="col-sm-6 text-end">
+          <ul class="list-horizontal">
+            <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+    <%# footer end %>
+
   </body>
 </html>
