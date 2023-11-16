@@ -11,7 +11,7 @@
             <h5 class="card-header">Coming bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <li class="list-group-item"><%= booking.service_id %> - <%= booking.date %></li>
+                <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
               <% end %>
             </ul>
           </div>
@@ -24,7 +24,7 @@
             <h5 class="card-header">Previous bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <li class="list-group-item"><%= booking.user_id %> - <%= booking.date %></li>
+                <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
               <% end %>
             </ul>
           </div>
@@ -37,7 +37,7 @@
           <div class="card-body">
             <h5 class="card-header">Pending bookings</h5>
               <% @bookings.each do |booking| %>
-                <p><%= booking.user_id %> - <%= booking.date %></p>
+                <p><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %></p>
                 <p><%= booking.comments %></p>
                 <a class="btn btn-outline-primary btn-lg" href="#" role="button">Modify</a>
                 <a class="btn btn-outline-danger btn-lg" href="#" role="button">Cancel</a>
