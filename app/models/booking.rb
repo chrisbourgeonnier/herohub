@@ -7,4 +7,6 @@ class Booking < ApplicationRecord
   validates :total_price, presence: true
   validates :comments, presence: true
   validates :status, presence: true
+
+  enum status: %i[pending accepted declined]
 end
