@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>My dashboard</h1>
-  <br>
+  <h1>My Sup' dashboard</h1>
+  <div class="container lists-container">
     <div class="d-flex flex-row justify-content-md-between">
       <div class="p-2">
         <div class="d-flex">
@@ -9,7 +9,7 @@
             <h5 class="card-header">Coming bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <% if booking.date >= Date.today && booking.status == 1 %>
+                <% if booking.date >= Date.today %>
                 <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
                 <% end %>
               <% end %>
@@ -24,7 +24,7 @@
             <h5 class="card-header">Previous bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <% if booking.date < Date.today && booking.status == 1 %>
+                <% if booking.date < Date.today %>
                   <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
                 <% end %>
               <% end %>
@@ -37,16 +37,22 @@
       <div class="p-2">
         <div class="card mb-6 rounded shadow overflow-auto" style="width: 36rem; height: 585px">
           <div class="card-body">
-            <h5 class="card-header">Pending bookings</h5>
+            <h5 class="card-header">Bookings to Confirm</h5>
               <% @bookings.each do |booking| %>
-                <% if booking.status == 0 %>
+                <% if booking.status == "pending" %>
                 <div class="card-body">
                 <p><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %></p>
                 <p><%= booking.comments %></p>
-                <a class="btn btn-outline-primary btn-sm" href="#" role="button"><i class="fa-solid fa-pen"></i> Modify</a>
-                <%= link_to "X Cancel",
-                booking_path(booking), class:"btn btn-outline-danger btn-sm",
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel?"}
+                <%# <a class="btn btn-outline-success btn-sm" href="#" role="button"><i class="fa-solid fa-check"></i>   Accept</a>
+                <a class="btn btn-outline-danger btn-sm" href="#" role="button"><i class="fa-solid fa-xmark"></i>   Decline</a> %>
+
+                <%= link_to "Accept",
+                  accept_superheroes_booking_path(booking), class:"btn btn-outline-success btn-sm",
+                  data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to accept?"}
+                %>
+                <%= link_to "Decline",
+                  decline_superheroes_booking_path(booking), class:"btn btn-outline-danger btn-sm",
+                  data: {turbo_method: :patch, turbo_confirm: "Are you sure you want to decline?"}
                 %>
                 <p></p>
                 </div>
@@ -54,5 +60,7 @@
               <% end %>
           </div>
         </div>
-     </div>
+      </div>
+    </div>
+  </div>
 </div>

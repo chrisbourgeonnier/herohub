@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :edit, :update, :destroy]
 
   namespace :superheroes do
-    resources :bookings, only: :index
+    resources :bookings do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
     # equivalent to => get '/<namespace>/bookings', to: '<namespace>/bookings#index'
   end
 end
