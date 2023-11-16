@@ -1,7 +1,5 @@
 <div class="container">
   <h1>My dashboard</h1>
-  <br>
-
   <div class="container lists-container">
     <div class="d-flex flex-row justify-content-md-between">
       <div class="p-2">
@@ -11,7 +9,9 @@
             <h5 class="card-header">Coming bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
+                <% if booking.date >= Date.today %>
                 <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
+                <% end %>
               <% end %>
             </ul>
           </div>
@@ -24,7 +24,9 @@
             <h5 class="card-header">Previous bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
+                <% if booking.date < Date.today %>
+                  <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
+                <% end %>
               <% end %>
             </ul>
           </div>
@@ -37,10 +39,15 @@
           <div class="card-body">
             <h5 class="card-header">Pending bookings</h5>
               <% @bookings.each do |booking| %>
+                <% if booking.status == 0 %>
+                <div class="card-body">
                 <p><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %></p>
                 <p><%= booking.comments %></p>
-                <a class="btn btn-outline-primary btn-lg" href="#" role="button">Modify</a>
-                <a class="btn btn-outline-danger btn-lg" href="#" role="button">Cancel</a>
+                <a class="btn btn-outline-primary btn-sm" href="#" role="button">Modify</a>
+                <a class="btn btn-outline-danger btn-sm" href="#" role="button">Cancel</a>
+                <p></p>
+                </div>
+                <% end %>
               <% end %>
           </div>
         </div>
