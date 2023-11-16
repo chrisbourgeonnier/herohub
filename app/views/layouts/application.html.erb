@@ -32,6 +32,17 @@
           <ul class="navbar-nav me-auto">
             <%# <% if user_signed_in? %>
               <li class="nav-item active">
+                <div class="btn-group dropdown">
+                  <button type="button" class="nav-link yellow" data-bs-toggle="dropdown" aria-expanded="false">
+                    I'm a Superhero
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Lend my Powers", new_service_path, class: "dropdown-item" %></li>
+                    <li><%= link_to "My Super Bookings", superheroes_bookings_path, class: "dropdown-item" %></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item active">
                 <%= link_to "Home", root_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
@@ -76,7 +87,7 @@
 
 
    <%# footer start %>
-    <div class="text-white text-start bg-black p-5 mt-5">
+    <div class="text-white text-start footer-background p-5 mt-5">
       <div class="row pb-5">
         <div class="col-sm-3">
           <p>FAQ</p>
