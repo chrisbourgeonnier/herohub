@@ -41,11 +41,22 @@
                 <%= link_to "My bookings", bookings_path, class: "nav-link" %>
               </li>
               <li class="nav-item dropdown">
-                <%= image_tag "https://avatars.githubusercontent.com/u/144430313?v=4", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% if user_signed_in? %>
+                <% if current_user.avatar.attached? %>
+                  <%= cl_image_tag current_user.avatar.key, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                  <%= image_tag "https://avatars.githubusercontent.com/u/144430313?v=4", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
+                <% else %>
+                    <%= link_to "Log in", new_user_session_path, class: "nav-link", data: {turbo_method: :get} %>
+              <% end %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "Profile", "#", class: "dropdown-item" %>
                   <%= link_to "Settings", "#", class: "dropdown-item" %>
-                  <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+                  <% if user_signed_in? %>
+                    <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                  <% else %>
+                  <% end %>
                 </div>
               </li>
             <%# <% else %>
@@ -58,11 +69,11 @@
         </div>
       </div>
     </div>
-  
+
       <div class="main-display container">
         <%= yield %>
       </div>
-  
+
 
    <%# footer start %>
     <div class="text-white text-start bg-black p-5 mt-5">
