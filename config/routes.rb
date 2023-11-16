@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :services, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:new, :create, :edit, :update]
+    resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :edit, :update, :destroy]
 
-  namespace :services do
+  namespace :superheroes do
     resources :bookings, only: :index
     # equivalent to => get '/<namespace>/bookings', to: '<namespace>/bookings#index'
   end

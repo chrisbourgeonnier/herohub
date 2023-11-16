@@ -1,6 +1,6 @@
 <div class="container">
   <h1>My dashboard</h1>
-  <div class="container lists-container">
+  <br>
     <div class="d-flex flex-row justify-content-md-between">
       <div class="p-2">
         <div class="d-flex">
@@ -9,7 +9,7 @@
             <h5 class="card-header">Coming bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <% if booking.date >= Date.today %>
+                <% if booking.date >= Date.today && booking.status == 1 %>
                 <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
                 <% end %>
               <% end %>
@@ -24,7 +24,7 @@
             <h5 class="card-header">Previous bookings</h5>
             <ul class="list-group list-group-flush">
               <% @bookings.each do |booking| %>
-                <% if booking.date < Date.today %>
+                <% if booking.date < Date.today && booking.status == 1 %>
                   <li class="list-group-item"><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %> - <%= booking.comments %></li>
                 <% end %>
               <% end %>
@@ -43,8 +43,11 @@
                 <div class="card-body">
                 <p><%= Service.find(booking.service_id).superhero_name %> - <%= booking.date %></p>
                 <p><%= booking.comments %></p>
-                <a class="btn btn-outline-primary btn-sm" href="#" role="button">Modify</a>
-                <a class="btn btn-outline-danger btn-sm" href="#" role="button">Cancel</a>
+                <a class="btn btn-outline-primary btn-sm" href="#" role="button"><i class="fa-solid fa-pen"></i> Modify</a>
+                <%= link_to "X Cancel",
+                booking_path(booking), class:"btn btn-outline-danger btn-sm",
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel?"}
+                %>
                 <p></p>
                 </div>
                 <% end %>
@@ -53,5 +56,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
