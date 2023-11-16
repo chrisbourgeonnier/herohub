@@ -5,6 +5,5 @@ class Service < ApplicationRecord
   has_one_attached :photo
   validates :superhero_name, presence: true, uniqueness: true
   validates :fee, presence: true
-  validates :image_url, presence: true
   validates :bio, presence: true
 end

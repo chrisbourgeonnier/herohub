@@ -8,8 +8,10 @@
 
 require 'open-uri'
 puts "Destroying database..."
+Booking.destroy_all
 Service.destroy_all
 User.destroy_all
+
 puts "Creating user and service [1]"
 user = User.create!(email: "brucewayne@gmail.com", password: "iAmBatman")
 file = URI.open("https://images1.wionews.com/images/wion/900x1600/2023/6/19/1687169207509_desktopwallpaperlatestbatmanchristianbalebatmanwikiwikiagoodqualitybatmanchristianbale.jpg")
