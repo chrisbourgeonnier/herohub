@@ -1,44 +1,41 @@
-<div class="container">
-  <div class="card-service">
-    <%# <div class="col-3"> %>
-      <img src="<%= @service.image_url %>" width=300 alt="<%= @service.superhero_name %>'s image">
-    <%# </div> %>
+<div class="card-service">
 
-    <div class="card-service-infos">
+  <%= cl_image_tag @service.photo.key, crop: :fill %>
 
-      <h1>
-        <%= @service.superhero_name %>
-      </h1>
-      <div class="d-grid gap-2">
+  <div class="card-service-infos">
+
+    <h1>
+      <%= @service.superhero_name %>
+    </h1>
+    <div class="d-grid gap-2">
+      <p>
+        <strong>I am a </strong>
+        <%= @service.race %>
+      </p>
+
+      <p>
+        <strong>My powers are </strong>
+        <%= @service.powers %>
+      </p>
+
+      <div class="team">
         <p>
-          <strong>I am a </strong>
-          <%= @service.race %>
-        </p>
-
-        <p>
-          <strong>My powers are </strong>
-          <%= @service.powers %>
-        </p>
-
-        <div class="team">
-          <p>
-            <strong>I belong to the </strong>
-            <%= @service.team %>
-          </p>
-        </div>
-
-        <p><strong>About me: </strong>
-          <%= @service.bio %>
+          <strong>I belong to the </strong>
+          <%= @service.team %>
         </p>
       </div>
 
-      <h3>
-        <strong>I'm yours for ¥<%= @service.fee %> /day</strong>
-      </h3>
-      <div class="d-grid gap-2">
-        <%= link_to "Book my services", new_service_booking_path(@service), class: "btn btn-flat" %>
-      </div>
-
+      <p><strong>About me: </strong>
+        <%= @service.bio %>
+      </p>
     </div>
+
+    <h3>
+      <strong>I'm yours for ¥<%= @service.fee %> /day</strong>
+    </h3>
+    <div class="d-grid gap-2">
+      <%= link_to "Book my services", new_service_booking_path(@service), class: "btn btn-flat" %>
+    </div>
+
   </div>
 </div>

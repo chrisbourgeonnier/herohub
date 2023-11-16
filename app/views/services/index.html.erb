@@ -1,26 +1,31 @@
-<div class="container">
-  <h1>Choose your superhero</h1>
-
-  <div class="container lists-container">
-    <main class="p-4">
-        <div class="row">
-            <% @services.each do |service| %>
-             <div class="col-md-auto">
-              <div class="card mb-3 rounded shadow" style="width: 18rem;">
-                <img class="card-img-top" src=<%= service.image_url %> alt="Card image cap" height="200">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= service.superhero_name %></h5>
-                    <p class="card-text"><%= service.bio %></p>
-                    <a href="services/<%= service.id %>" class="btn btn-primary">See more</a>
-                    <div class="card-footer">
-                      <small class="text-muted">¥ <%= service.fee %> / day</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-        </div>
-    </main>
+<div class="row">
+  <div class="col-12 px-5">
+    <h1>Choose your SuperHero</h1>
   </div>
+</div>
 
+<div>
+  <main class="p-4">
+    <div class="row justify-content-center">
+      <% @services.each do |service| %>
+        <div class="col-md-auto">
+          <div class="card mb-3 rounded shadow" style="width: 18rem;">
+            <% if service.photo.attached? %>
+              <%= cl_image_tag service.photo.key, class: "card-img-top", alt: "Card image cap", height: "200" %>
+            <% else %>
+              <%= image_tag "herohub.jpg", class: "card-img-top", alt: "Card image cap", height: "200" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= service.superhero_name %></h5>
+              <p class="card-text"><%= service.bio %></p>
+              <a href="services/<%= service.id %>" class="btn btn-primary">See more</a>
+              <div class="card-footer">
+                <small class="text-muted">¥ <%= service.fee %> / day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </main>
 </div>

@@ -8,8 +8,10 @@
 
 require 'open-uri'
 puts "Destroying database..."
+Booking.destroy_all
 Service.destroy_all
 User.destroy_all
+
 puts "Creating user and service [1]"
 file = URI.open("https://static.wikia.nocookie.net/nolanverse/images/4/41/Christian_bale_bruce_wayne.jpg/revision/latest?cb=20130102205807")
 user = User.create!(email: "brucewayne@gmail.com", password: "iAmBatman", username: "Bruce Wayne")

@@ -4,12 +4,12 @@ $dark-purple: #37038a;
 .card-service {
   overflow: hidden;
   height: 650px;
-  border-radius: 10px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin: 50px auto;
+  width: 80%;
 }
 
 .card-service img {
