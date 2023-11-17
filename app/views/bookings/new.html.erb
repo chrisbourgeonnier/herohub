@@ -10,7 +10,7 @@
       <%= simple_form_for([@service, @booking]) do |f| %>
         <%= f.input :date %>
         <%= f.input :location %>
-        <%= f.input :comments, input_html: { class: "form-input" } %>
+        <%= f.input :comments %>
         <%= f.submit "Send request", class: "form-button" %>
       <% end %>
     </div>

@@ -10,8 +10,8 @@
       <%= simple_form_for(@service) do |f| %>
         <%= f.input :superhero_name %>
         <%= f.input :photo, as: :file %>
-        <%= f.input :race %>
-        <%= f.input :team %>
+        <%= f.input :race, collection: ['Human', 'Demigod', 'Mutant', 'Cyborg', 'Android', 'Elemental', 'Mythical', 'Alien', 'Other']  %>
+        <%= f.input :team, collection: ['Independent', 'Avengers', 'Justice League', 'Galactic Guardians', 'Earth Defenders', 'Mystic Alliance', 'Urban Protectors', 'Secret Society', 'Time Keepers', 'Dimensional Watch', 'Peace Enforcers', 'Shadow Operatives', 'Other']  %>
         <%= f.input :powers %>
         <%= f.input :bio %>
         <%= f.input :fee %>
