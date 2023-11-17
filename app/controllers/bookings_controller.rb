@@ -15,9 +15,9 @@ class BookingsController < ApplicationController
     @booking.total_price = @service.fee
     @booking.user = current_user
     if @booking.save
-      redirect_to service_path(@service)
+      redirect_to bookings_path
     else
-      render :new, status: :unprocessable_entity
+      render "services/show", status: :unprocessable_entity
     end
   end
 
