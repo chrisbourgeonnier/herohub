@@ -9,7 +9,7 @@
             <div class="card-body">
               <h5 class="card-header">Coming bookings</h5>
               <ul class="list-group list-group-flush">
-              <% if Booking.count == 0 %>
+              <% if @bookings.count == 0 %>
                 <li class="list-group-item">You don't have any coming booking yet</li>
               <% else %>
                 <% @bookings.each do |booking| %>
@@ -30,7 +30,7 @@
             <div class="card-body">
               <h5 class="card-header">Previous bookings</h5>
               <ul class="list-group list-group-flush">
-              <% if Booking.count == 0 %>
+              <% if current_user.bookings.count == 0 %>
                 <li class="list-group-item">You don't have any previous booking yet</li>
               <% else %>
                 <% @bookings.each do |booking| %>
@@ -52,11 +52,10 @@
             <div class="card-body">
               <h5 class="card-header">Pending bookings</h5>
               <ul class="list-group list-group-flush">
-              <% if Booking.count == 0 %>
+              <% if @bookings.where(status: "pending").count == 0 %>
                 <li class="list-group-item">You don't have any pending booking yet</li>
               <% else %>
                 <% @bookings.each do |booking| %>
-                  <% if booking.status == "pending" %>
                     <div class="card-body">
                     <p>For <%= Service.find(booking.service_id).superhero_name %>, on <%= booking.date %> in <%= booking.location %></p>
                     <p><%= booking.comments %></p>
@@ -67,9 +66,6 @@
                     %>
                     <p></p>
                     </div>
-                  <% else %>
-                    <li class="list-group-item">You don't have any pending booking yet</li>
-                  <% end %>
                 <% end %>
               <% end %>
               </ul>
