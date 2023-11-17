@@ -17,74 +17,83 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-
+<%# NAVBAR %>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
       <div class="container-fluid">
+
+    <%# LOGO %>
         <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag "herohub2.jpg" %>
         <% end %>
+    <%# LOGO END %>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
-            <%# <% if user_signed_in? %>
-              <li class="nav-item active">
-                <div class="btn-group dropdown">
-                  <button type="button" class="nav-link yellow" data-bs-toggle="dropdown" aria-expanded="false">
-                    I'm a Superhero
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "Lend my Powers", new_service_path, class: "dropdown-item" %></li>
-                    <li><%= link_to "My Super Bookings", superheroes_bookings_path, class: "dropdown-item" %></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item active">
-                <%= link_to "Home", root_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Superheroes", services_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item active">
-                <%= link_to "My bookings", bookings_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-              <% if user_signed_in? %>
-                <% if current_user.avatar.attached? %>
-                  <%= cl_image_tag current_user.avatar.key, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% else %>
-                  <%= image_tag "https://avatars.githubusercontent.com/u/144430313?v=4", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% end %>
-                <% else %>
-                    <%= link_to "Log in", new_user_session_path, class: "nav-link", data: {turbo_method: :get} %>
-              <% end %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "Profile", "#", class: "dropdown-item" %>
-                  <%= link_to "Settings", "#", class: "dropdown-item" %>
-                  <% if user_signed_in? %>
-                    <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-                  <% else %>
-                  <% end %>
-                </div>
-              </li>
-            <%# <% else %>
-              <%# <li class="nav-item"> %>
-                <%# link_to "Login", new_user_session_path, class: "nav-link" %>
-              <%# </li> %>
-            <%# end %>
 
+    <%# DROPDOWN MENU %>
+            <li class="nav-item active">
+              <div class="btn-group dropdown">
+                <button type="button" class="nav-link yellow" data-bs-toggle="dropdown" aria-expanded="false">
+                  I'm a Superhero
+                </button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Lend my Powers", new_service_path, class: "dropdown-item" %></li>
+                  <% if current_user %>
+                    <% if current_user.service %>
+                      <li><%= link_to "My Powers Page", service_path(current_user.service), class: "dropdown-item" %></li>
+                      <li><%= link_to "My Super Bookings", superheroes_bookings_path, class: "dropdown-item" %></li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </div>
+            </li>
+    <%# DROPDOWN MENU END%>
+
+    <%# OTHER BUTTONS %>
+            <li class="nav-item active">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Superheroes", services_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "My bookings", bookings_path, class: "nav-link" %>
+            </li>
+    <%# OTHER BUTTONS END%>
+
+            <li class="nav-item dropdown">
+            <% if user_signed_in? %>
+              <% if current_user.avatar.attached? %>
+                <%= cl_image_tag current_user.avatar.key, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "https://avatars.githubusercontent.com/u/144430313?v=4", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+              <% else %>
+                  <%= link_to "Log in", new_user_session_path, class: "nav-link", data: {turbo_method: :get} %>
+            <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Profile", "#", class: "dropdown-item" %>
+                <%= link_to "Settings", "#", class: "dropdown-item" %>
+                <% if user_signed_in? %>
+                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                <% else %>
+                <% end %>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
     </div>
+<%# NAVBAR END %>
 
+<%# PAGE %>
       <div class="main-display container">
         <%= yield %>
       </div>
-
+<%# PAGE END %>
 
    <%# footer start %>
     <div class="text-white text-start footer-background p-5 mt-5">
