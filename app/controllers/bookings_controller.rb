@@ -15,7 +15,9 @@ class BookingsController < ApplicationController
     @booking.total_price = @service.fee
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path
+
+      redirect_to bookings_path, notice: "Booking request sent!"
+     # redirect_to service_path(@service), notice: "Booking request sent!"
     else
       render "services/show", status: :unprocessable_entity
     end
@@ -25,7 +27,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
 
-    redirect_to bookings_path, status: :see_other
+    redirect_to bookings_path, status: :see_other, notice: "Booking successfully deleted!"
   end
 
   private
