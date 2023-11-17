@@ -33,8 +33,14 @@
     <h3>
       <strong>I'm yours for ¥<%= @service.fee %> /day</strong>
     </h3>
-    <div class="d-grid gap-2">
-      <%= link_to "Book my services", new_service_booking_path(@service), class: "btn btn-flat" %>
 
+  </div>
+  <div class="card-service-infos border-dark border-start">
+    <%= simple_form_for([@service, @booking]) do |f| %>
+      <%= f.input :date %>
+      <%= f.input :location %>
+      <%= f.input :comments %>
+      <%= f.submit "Book my services", class: "btn btn-flat w-100" %>
+    <% end %>
   </div>
 </div>

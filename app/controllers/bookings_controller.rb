@@ -15,9 +15,11 @@ class BookingsController < ApplicationController
     @booking.total_price = @service.fee
     @booking.user = current_user
     if @booking.save
-      redirect_to service_path(@service), notice: "Booking request sent!"
+
+      redirect_to bookings_path, notice: "Booking request sent!"
+     # redirect_to service_path(@service), notice: "Booking request sent!"
     else
-      render :new, status: :unprocessable_entity
+      render "services/show", status: :unprocessable_entity
     end
   end
 
