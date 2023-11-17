@@ -42,7 +42,7 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to "Lend my Powers", new_service_path, class: "dropdown-item" %></li>
                   <% if current_user %>
-                    <% if current_user.service %>
+                    <% if current_user.service && current_user.service.persisted? %>
                       <li><%= link_to "My Powers Page", service_path(current_user.service), class: "dropdown-item" %></li>
                       <li><%= link_to "My Super Bookings", superheroes_bookings_path, class: "dropdown-item" %></li>
                     <% end %>
