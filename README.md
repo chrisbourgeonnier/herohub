@@ -19,7 +19,7 @@ _HeroHub is a computer-first web app where users can book a superhero for a day.
 - Superheroes can also be users and therefore book the services of another superhero 
 
 #### Screenshots:
-<img width="500" alt="homepage" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/homepage.jpg"> <img width="500" alt="list-view" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/list.jpg"> <img width="500" alt="show-one" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/hero-page.jpg"> <img width="500" alt="booking-user" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/booking-user.jpg"><img width="500" alt="booking-hero" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/booking-hero.jpg">
+<img width="400" alt="homepage" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/homepage.jpg"> <img width="400" alt="list-view" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/list.jpg"> <img width="400" alt="show-one" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/hero-page.jpg"> <img width="400" alt="booking-user" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/booking-user.jpg"><img width="400" alt="booking-hero" src="https://github.com/missdaji/herohub/blob/master/app/assets/images/booking-hero.jpg">
 
 #### Create your own account and explore the app: 
 https://herohub-tokyo-b8670f0c5306.herokuapp.com
