@@ -67,5 +67,5 @@ Inspired by the characters from the Marvel and DC Comics universes.
 ## Team Members
 - [Stéphanie DI DINO](https://www.linkedin.com/in/ssdidino/) - Lead Developer
 - [Julien LESUEUR](https://www.linkedin.com/in/julien-lesueur/) - Project Manager
-- [Chris BOURGEONNIER](https://www.linkedin.com/in/chrisbourgeonnier/) - Fullstack Developer
+- [Chris BOURGEONNIER](https://www.linkedin.com/in/chrisbourgeonnier/) - Fullstack Developer, Presenter
 - [Jonatan JAKOBSSON](https://www.linkedin.com/in/jonatan--jakobsson/) - Fullstack Developer
